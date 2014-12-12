@@ -10,6 +10,10 @@ class DotkaDemoApp < Sinatra::Base
 		erb :main, :layout => true
 	end
 
+	get "/player" do
+		redirect to("/player/#{params[:account_id]}")
+	end
+
 	get "/player/:account_id" do
 		"Player with account ID #{params[:account_id]}."
 	end
