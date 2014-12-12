@@ -1,5 +1,5 @@
 require "sinatra"
-
+require "dotka"
 
 class DotkaDemoApp < Sinatra::Base
 
