@@ -1,5 +1,6 @@
 require "sinatra"
 require "dotka"
+require_relative "env"
 
 class DotkaDemoApp < Sinatra::Base
 
@@ -15,7 +16,8 @@ class DotkaDemoApp < Sinatra::Base
 	end
 
 	get "/player/:account_id" do
-		"Player with account ID #{params[:account_id]}."
+		$API_KEY
+		# "Player with account ID #{params[:account_id]}."
 	end
 
 	get "/match/:id" do
