@@ -1,9 +1,13 @@
 require "sinatra"
 
+
 class DotkaDemoApp < Sinatra::Base
 
+	enable :static
+	set :public_folder, __dir__ + "/../public"
+
 	get "/" do
-		"Welcome!"
+		erb :main, :layout => true
 	end
 
 	get "/player/:account_id" do
