@@ -2,4 +2,4 @@ source "https://rubygems.org"
 
 gem "sinatra", "~> 1.4.5"
 gem "thin", "~> 1.6.3"
-gem "dotka", "~> 1.0.4"
+gem "dotka", "~> 1.1.1"

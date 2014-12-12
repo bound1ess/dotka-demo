@@ -16,8 +16,12 @@ class DotkaDemoApp < Sinatra::Base
 	end
 
 	get "/player/:account_id" do
-		$API_KEY
-		# "Player with account ID #{params[:account_id]}."
+		dotka = Dotka.new
+		dotka.set_api_key $API_KEY
+		matches = dotka.matches(id = params[:account_id], {
+			"matches_requested" => 10
+		})
+		erb :player, :layout => true, :locals => {:matches => matches, :account_id => id}
 	end
 
 	get "/match/:id" do
