@@ -1,11 +1,13 @@
-<h1>Played matches for #<%= account_id %></h1>
+<h1>Player #<%= account_id %></h1>
 
 <% for match in matches %>
 	<div>
 		<h3>
 			<a href="/match/<%= match.id %>">
-				[<%= (match.winner == match.player(account_id).team) ? "Won" : "Lost" %>] 
-				<%= match.player(account_id).hero.localized_name %>
+				<%= (match.winner == match.player(account_id).team) ? "Won" : "Lost" %> as 
+				<%= (p = match.player(account_id)).hero.localized_name %>
+				(<%= p.kills %>/<%= p.deaths %>/<%= p.assists %>)  
+				in <%= "#{match.duration / 60}:#{match.duration % 60}" %>
 			</a>
 		</h3>
 	</div>

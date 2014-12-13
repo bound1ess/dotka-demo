@@ -21,6 +21,7 @@ class DotkaDemoApp < Sinatra::Base
 		matches = dotka.matches(id = params[:account_id], {
 			"matches_requested" => 10
 		})
+		matches.each { |match| match.load_info dotka }
 		erb :player, :layout => true, :locals => {:matches => matches, :account_id => id}
 	end
 
