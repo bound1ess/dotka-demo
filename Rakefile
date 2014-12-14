@@ -6,4 +6,5 @@ end
 
 task :server do
 	sh "rackup"
+	# sh "sensible-browser 0.0.0.0:9292"
 end
