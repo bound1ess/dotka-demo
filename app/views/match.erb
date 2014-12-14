@@ -1,0 +1,42 @@
+<h1>Match #<%= match.id %></h1>
+
+<p><strong>Winner Team:</strong> <%= match.winner.capitalize %></p>
+<p><strong>Duration: </strong> <%= "#{match.duration / 60}:#{match.duration % 60}" %></p>
+<p><strong>Lobby: </strong> <%= match.lobby.localized_name %></p>
+<p><strong>Game Mode: </strong> <%= match.game_mode.localized_name %></p>
+<p><strong>Region: </strong> <%= match.region.localized_name %></p>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Hero</th>
+			<th>Level</th>
+			<th>Kills</th>
+			<th>Deaths</th>
+			<th>Assists</th>
+			<th>Gold</th>
+			<th>GPM</th>
+			<th>XPM</th>
+			<th>Last Hits</th>
+			<th>Denies</th>
+			<th>Team</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for player in match.players %>
+			<tr>
+				<td><%= player.hero.localized_name %></td>
+				<td><%= player.level %></td>
+				<td><%= player.kills %></td>
+				<td><%= player.deaths %></td>
+				<td><%= player.assists %></td>
+				<td><%= player.gold %></td>
+				<td><%= player.gold_per_min %></td>
+				<td><%= player.xp_per_min %></td>
+				<td><%= player.last_hits %></td>
+				<td><%= player.denies %></td>
+				<td><%= player.team.capitalize %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

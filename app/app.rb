@@ -26,7 +26,8 @@ class DotkaDemoApp < Sinatra::Base
 	end
 
 	get "/match/:id" do
-		"Match with ID #{params[:id]}."
+		(dotka = Dotka.new).set_api_key $API_KEY
+		erb :match, :layout => true, :locals => {:match => dotka.match(params[:id])}
 	end
 
 end
